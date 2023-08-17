@@ -1,27 +1,29 @@
 package br.com.todolist;
 
 import jakarta.persistence.*;
-import org.springframework.aot.generate.GeneratedTypeReference;
 
 @Entity
 public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-        private Integer id;
+    private Integer id;
 
-    @Column(length = 100, nullable = false)
-        private String title;
+    @Column(length = 100,nullable = false)
+    private String title;
 
     @Column(length = 255, nullable = false)
-        private String description;
+    private String description;
 
     @Column(nullable = false)
-        private StatusEnum status = StatusEnum.NOT_STARTED;
+    private StatusEnum status = StatusEnum.NOT_STARTED;
 
     public Todo(String title, String description, StatusEnum status) {
         this.title = title;
         this.description = description;
         this.status = status;
+    }
+
+    public Todo() {
     }
 
     public Integer getId() {
